@@ -1,0 +1,16 @@
+name: Test
+
+on:
+  push:
+
+jobs:
+  baseline-profile:
+    runs-on: macos-latest
+    timeout-minutes: 45
+    env:
+      TERM: dumb
+
+    steps:
+    - name: Test
+      shell: bash
+      run: echo $PATH
