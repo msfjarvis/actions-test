@@ -24,5 +24,5 @@ jobs:
               owner: context.payload.repository.owner.login,
               repo: context.payload.repository.name,
               issue_number: context.payload.number,
-              body: `This PR is targeting the main branch but did not originate from staging, please make sure this intentional`,
+              body: `## :warning: Warning :warning:\nThis PR is targeting the main branch but did not originate from staging, please make sure this is intentional`,
             });
