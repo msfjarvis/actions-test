@@ -3,7 +3,7 @@ module.exports = async ({github, context}) => {
     owner: context.payload.repository.owner.login,
     repo: context.payload.repository.name,
     pull_number: context.payload.number,
-  });
+  }).data;
 
   console.log(Object.getOwnPropertyNames(pr));
   const shouldWarn = pr.head.ref != "staging" // && pr.base.ref == "main"
