@@ -6,7 +6,7 @@ module.exports = async ({github, context}) => {
   }).data;
 
   console.log(Object.getOwnPropertyNames(pr));
-  const shouldWarn = pr.head.ref != "staging" // && pr.base.ref == "main"
+  const shouldWarn = pr.head.ref != "staging" && pr.base.ref == "main";
 
   if (shouldWarn) {
     octokit.rest.issues.createComment({
