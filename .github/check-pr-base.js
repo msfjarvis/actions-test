@@ -5,6 +5,7 @@ module.exports = async ({github, context}) => {
     pull_number: context.payload.number,
   });
 
+  console.log(Object.getOwnPropertyNames(pr));
   const shouldWarn = pr.head.ref != "staging" // && pr.base.ref == "main"
 
   if (shouldWarn) {
