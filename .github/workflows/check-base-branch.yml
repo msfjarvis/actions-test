@@ -15,15 +15,18 @@ jobs:
   check-pr-base:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
-
       - name: Validate PR head and base branches
-        uses: actions/github-script@d556feaca394842dc55e4734bf3bb9f685482fa0 # v6.3.3
-        id: validate-pr-base
-        with:
-          result-encoding: string
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          script: |
-            const script = require('.github/check-pr-base.js')
-            return await script({github, context})
+        if: "${{ github.base_ref == 'refs/heads/main' && github.head_ref != 'refs/heads/staging' }}"
+        run: exit 1
+      # - name: Checkout repository
+        # uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
+# 
+      # - name: Validate PR head and base branches
+        # uses: actions/github-script@d556feaca394842dc55e4734bf3bb9f685482fa0 # v6.3.3
+        # id: validate-pr-base
+        # with:
+          # result-encoding: string
+          # github-token: ${{ secrets.GITHUB_TOKEN }}
+          # script: |
+            # const script = require('.github/check-pr-base.js')
+            # return await script({github, context})
