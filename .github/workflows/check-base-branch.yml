@@ -15,6 +15,12 @@ jobs:
   check-pr-base:
     runs-on: ubuntu-latest
     steps:
+      - name: .
+        shell: bash
+        env:
+          BASE_REF: ${{ github.base_ref }}
+          HEAD_REF: ${{ github.head_ref }}
+        run: echo $BASE_REF $HEAD_REF
       - name: Validate PR head and base branches
         if: "${{ github.base_ref == 'refs/heads/main' && github.head_ref != 'refs/heads/staging' }}"
         run: exit 1
