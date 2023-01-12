@@ -5,7 +5,7 @@ module.exports = async ({github, context}) => {
     pull_number: context.payload.number,
   });
 
-  const shouldWarn = pr.base.ref == "main" && pr.head.ref != "staging"
+  const shouldWarn = pr.head.ref != "staging" // && pr.base.ref == "main"
 
   if (shouldWarn) {
     octokit.rest.issues.createComment({
