@@ -8,10 +8,11 @@ on:
     branches:
       - main
 
+permissions:
+  pull-requests: write
+
 jobs:
   check-pr-base:
-    permissions:
-      pull-requests: write
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
