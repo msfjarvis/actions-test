@@ -14,3 +14,5 @@ jobs:
       with:
         tag: v1.21.0
         version: 1.21.0
+    - shell: bash
+      run: git diff
