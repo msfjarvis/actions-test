@@ -1,0 +1,14 @@
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  bump-changelog:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Update changelog
+      uses: msfjarvis/keep-a-changelog-new-release@main
+      with:
+        tag: v1.21.0
+        version: 1.21.0
