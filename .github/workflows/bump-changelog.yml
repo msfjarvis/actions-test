@@ -7,12 +7,5 @@ jobs:
   bump-changelog:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
-    - name: Update changelog
-      uses: msfjarvis/keep-a-changelog-new-release@main
-      with:
-        tag: v1.21.0
-        version: 1.21.0
-    - shell: bash
-      run: git diff
+    - name: Accept all SDK licenses
+      run: yes | /usr/local/lib/android/sdk/tools/bin/sdkmanager --licenses
