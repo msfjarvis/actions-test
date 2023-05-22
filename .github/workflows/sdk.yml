@@ -1,0 +1,12 @@
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  accept-licenses:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Accept all SDK licenses
+      shell: bash
+      run: yes | $ANDROID_HOME/tools/bin/sdkmanager --licenses
