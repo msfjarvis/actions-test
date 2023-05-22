@@ -9,4 +9,4 @@ jobs:
     steps:
     - name: Accept all SDK licenses
       shell: bash
-      run: yes 2>/dev/null | $ANDROID_HOME/tools/bin/sdkmanager --licenses
+      run: printf 'y\ny\ny\ny\ny\n' | $ANDROID_HOME/tools/bin/sdkmanager --licenses
