@@ -20,5 +20,7 @@ jobs:
     - shell: bash
       run: |
         pwd
-        ls .
-        ls ../
+        ls -la
+        cd ../dotfiles
+        pwd
+        ls -la
