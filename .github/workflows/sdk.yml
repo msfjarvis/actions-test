@@ -17,10 +17,8 @@ jobs:
         ref: main
         path: dotfiles
 
-    - shell: bash
-      run: |
-        pwd
-        ls -la
-        cd ../dotfiles
-        pwd
-        ls -la
+    - name: Setup upterm session
+      uses: lhotari/action-upterm@v1
+      with:
+        ## limits ssh access and adds the ssh public key for the user which triggered the workflow
+        limit-access-to-actor: true
