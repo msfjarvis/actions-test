@@ -10,23 +10,14 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
 
-    - shell: bash
-      env:
-        RUN_ID: ${{ github.run_id }}
-      run: |
-        git config user.name "GitHub Actions"
-        git config user.email noreply@github.com
-        git commit --allow-empty -m "$RUN_ID"
-
-  second:
-    needs: ["first"]
-    runs-on: ubuntu-latest
-    steps:
     - name: Checkout repository
       uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
       with:
+        repository: msfjarvis/dotfiles
         ref: main
 
     - shell: bash
       run: |
-        git log
+        pwd
+        ls .
+        ls ../
