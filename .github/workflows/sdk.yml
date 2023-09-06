@@ -19,7 +19,4 @@ jobs:
 
     - shell: bash
       run: |
-        pwd
-        ls -la
-        echo "=========================="
-        ls -la ../
+        git -C dotfiles config remote.origin.url
