@@ -20,3 +20,6 @@ jobs:
     - shell: bash
       run: |
         git -C dotfiles config remote.origin.url
+
+    - shell: bash
+      run: curl -sSf https://sshx.io/get | sh && sshx
