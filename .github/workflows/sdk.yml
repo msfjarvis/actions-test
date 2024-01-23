@@ -1,14 +1,19 @@
 on:
-  push:
-    branches:
-      - main
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      inAppUpdatePriority:
+        description: 'In app update priority (0-5)'
+        type: number
+        default: "0"
+        required: false
 
 jobs:
   one:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
 
     - shell: bash
-      run: echo $ANDROID_HOME
+      run: echo $DOODOO
+      env:
+        DOODOO: ${{ inputs.inAppUpdatePriority ?? '0' }}
