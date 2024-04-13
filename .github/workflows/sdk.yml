@@ -1,19 +1,8 @@
 on:
   pull_request:
-  workflow_dispatch:
-    inputs:
-      inAppUpdatePriority:
-        description: 'In app update priority (0-5)'
-        type: number
-        default: "0"
-        required: false
-
+  push:
 jobs:
   one:
     runs-on: ubuntu-latest
     steps:
-
-    - shell: bash
-      run: echo $DOODOO
-      env:
-        DOODOO: ${{ inputs.inAppUpdatePriority ?? '0' }}
+    - uses: msfjarvis/actions-test/comp@main
