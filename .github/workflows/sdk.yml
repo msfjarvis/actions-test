@@ -5,4 +5,4 @@ jobs:
   one:
     runs-on: ubuntu-latest
     steps:
-    - uses: msfjarvis/actions-test/comp@main
+    - uses: msfjarvis/actions-test/.github/comp@main
